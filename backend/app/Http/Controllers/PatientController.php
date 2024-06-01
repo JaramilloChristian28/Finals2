@@ -16,8 +16,8 @@ class PatientController extends BaseController
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'patient_name' => 'required|string',
-            'email_address' => 'required|email|unique:tblpatients',
+            'name' => 'required|string',
+            'email' => 'required|email|unique:patients',
             'age' => 'required|integer',
         ]);
 
@@ -33,8 +33,8 @@ class PatientController extends BaseController
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'patient_name' => 'required|string',
-            'email_address' => 'required|email|unique:tblpatients,email_address,' . $id . ',patient_id',
+            'name' => 'required|string',
+            'email' => 'required|email|unique:patients,email,' . $id . ',id',
             'age' => 'required|integer',
         ]);
 
